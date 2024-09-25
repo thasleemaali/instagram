@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>send feedback</title>
+<style>
+input[type=text], select {
+  width: 500px;
+  height:200px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: #c3195d;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #c3195d;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  position: relative;
+  left: 380px;
+  width: 600px;
+  height: 500px;
+
+}
+    </style>
+</head>
+<body style="background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);">
+<form action="/insta/usersend_feedback_post/"method="post" enctype="multipart/form-data">
+{% csrf_token %}
+    <br><br>
+<div>
+    <center>
+      <img src="/static/images/Instagram-Logo.wine.jpg" style="width: 100px">
+      <h2 style="color: #c3195d"><b>Tell us about Instagram</b></h2>
+      <br><br>
+      <input type="text" id="fname" name="feed" placeholder="type your feedback">
+      <input type="submit" value="Send">
+  </center>
+</div>
+</form>
+</body>
+</html>

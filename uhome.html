@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>uhome</title>
+</head>
+<style>
+    * {
+   margin: 0;
+   padding: 0;
+}
+ul {
+   margin: 0;
+   padding: 0;
+   list-style-type: none;
+}
+li a {
+   text-decoration: none;
+   color: inherit;
+   padding: 10px;
+   display: block;
+   font-size: 20px;
+}
+li a:hover:not(.active) {
+    background-color: #444;
+    color: #fff;
+}
+
+.nav-bar {
+   background-color: black;
+   width: 15%;
+   height: 100%;
+   position: fixed;
+   overflow: auto;
+}
+.active {
+   background-color: black;
+   color: white;
+}
+.logo {
+    margin-bottom: 1px;
+}
+.vertical_line{
+    width: 1px;
+    height: 10px;
+    background-color: white;
+{#    border-top: 5px white;#}
+{#    line-height: 80%;#}
+}
+.main{
+    width: 100%;
+{#    padding: 40px 0;#}
+    display: flex;
+    justify-content: center;
+{#    margin-top: 50px;#}
+}
+
+.wrapper{
+    width: 70%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-gap: 30px;
+}
+
+.left-col{
+    display: flex;
+    flex-direction: column;
+}
+
+.status-wrapper{
+    width: 200%;
+    height: 100px;
+    background: white;
+    border: 1px solid #dfdfdf;
+    border-radius: 2px;
+    padding: 10px;
+    padding-right: 0;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+.status-wrapper::-webkit-scrollbar{
+    display: none;
+}
+
+.status-card{
+    flex: 0 0 auto;
+    width: 80px;
+    max-width: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.profile-pic{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 3px;
+    background: linear-gradient(45deg, rgb(255, 230, 0), rgb(255, 0, 128) 80%);
+}
+
+.profile-pic img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.username{
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    font-size: 12px;
+    margin-top:5px;
+    color: rgba(0, 0, 0, 0.5)
+}
+.post{
+    width: 100%;
+    height: auto;
+    background: #fff;
+    border: 1px solid #dfdfdf;
+    margin-top: 20px;
+    align-items: center;
+
+}
+
+.info{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.info .username{
+    width: auto;
+    font-weight: bold;
+    color: #000;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+.info .options{
+    height: 10px;
+    cursor: pointer;
+}
+
+.info .user{
+    display: flex;
+    align-items: center;
+}
+
+.info .profile-pic{
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    background: none;
+}
+
+.info .profile-pic img{
+    border: none;
+}
+
+.post-image{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+
+
+}
+
+.post-content{
+    width: 100%;
+    padding: 20px;
+}
+
+.likes{
+    font-weight: bold;
+}
+
+.description{
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.description span{
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.post-time{
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 12px;
+}
+
+.comment-wrapper{
+    width: 100%;
+    height: 50px;
+    border-radius: 1px solid #dfdfdf;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comment-wrapper .icon{
+    height: 30px;
+}
+
+.comment-box{
+    width: 80%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.comment-btn,
+.action-btn{
+    width: 70px;
+    height: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    text-transform: capitalize;
+    font-size: 16px;
+    color: rgb(0, 162, 255);
+    opacity: 0.5;
+}
+
+.reaction-wrapper{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    margin-top: -20px;
+    align-items: center;
+}
+
+.reaction-wrapper .icon{
+    height: 25px;
+    margin: 0;
+    margin-right: 20px;
+}
+
+.reaction-wrapper .icon.save{
+    margin-left: auto;
+}
+</style>
+<body bgcolor="black">
+<div class="nav-bar">
+   <ul>
+       <br><br>
+       <center>
+           <div class="logo">
+           <img src="/static/images/download.jpg" style="width: 150px; background-color:white ">
+       </div>
+       </center>
+       <br>
+      <li><a href="/insta/home/" class="active">Home</a></li>
+       <br>
+      <li><a href="/insta/usersearch/" class="active">search</a></li>
+       <br>
+      <li><a href="/insta/view_registration/" class="active">profile</a></li>
+       <br>
+      <li><a href="/insta/post/" class="active">Add Post</a></li>
+       <br>
+      <li><a href="/insta/frequest/" class="active">requests</a></li>
+       <br>
+      <li><a href="/insta/send_complaint/" class="active">complaints</a></li>
+       <br>
+      <li><a href="/insta/usersend_feedback/" class="active">Feedback</a></li>
+       <br>
+       <li><a href="/insta/reportuser/" class="active">Report</a></li>
+       <br>
+      <li><a href="/insta/changepasw/" class="active">change password</a></li>
+       <br>
+      <li><a href="/insta/ulogin/" class="active">login</a></li>
+       <br>
+   </ul>
+    <div class="vertical_line"></div>
+</div>
+<section class="main">
+    <div class="wrapper">
+        <div class="left-col">
+            <div class="status-wrapper">
+                 <div class="status-card">
+                    <div class="profile-pic"><img src="/static/images/shuhaib.jpg" alt=""></div>
+                    <p class="username">shuhaib23</p>
+                </div>
+                <div class="status-card">
+                    <div class="profile-pic"><img src="/static/images/IMG_8019.jpg" alt=""></div>
+                    <p class="username">thaslii_ma</p>
+                </div>
+                <div class="status-card">
+                    <div class="profile-pic"><img src="/static/images/hash.JPG" alt=""></div>
+                    <p class="username">hashim</p>
+                </div>
+                <div class="status-card">
+                    <div class="profile-pic"><img src="/static/images/IMG_7291.JPG" alt=""></div>
+                    <p class="username">shabnam</p>
+                </div>
+                <div class="status-card">
+                    <div class="profile-pic"><img src="/static/images/IMG_5676.JPG" alt=""></div>
+                    <p class="username">hudha</p>
+                </div>
+                <div class="status-card">
+                    <div class="profile-pic"><img src="/static/images/IMG_1137.jpg" alt=""></div>
+                    <p class="username">thesz</p>
+                </div>
+                <div class="status-card">
+                    <div class="profile-pic"><img src="/static/images/IMG_0835.jpg" alt=""></div>
+                    <p class="username">sahala</p>
+                </div>
+                <div class="status-card">
+                    <div class="profile-pic"><img src="/static/images/IMG_0944.jpg" alt=""></div>
+                    <p class="username">ft</p>
+                </div>
+                <div class="status-card">
+                    <div class="profile-pic"><img src="/static/images/IMG_0728.jpg" alt=""></div>
+                    <p class="username">fhxna</p>
+                </div>
+                <div class="status-card">
+                    <div class="profile-pic"><img src="/static/images/IMG_0809.jpg" alt=""></div>
+                    <p class="username">loves</p>
+                </div>
+                <div class="status-card">
+                    <div class="profile-pic"><img src="/static/images/IMG_1294.jpg" alt=""></div>
+                    <p class="username">Mariyam</p>
+                </div>
+                <div class="status-card">
+                    <div class="profile-pic"><img src="/static/images/IMG_4813.jpg" alt=""></div>
+                    <p class="username">shifa</p>
+                </div>
+        </div>
+    </div>
+</section>
+<section class="main">
+    <div class="wrapper">
+        <div class="left-col">
+            {% for post in posts %}
+            <div class="post">
+                <div class="info">
+                    <div class="user">
+                        <div class="profile-pic"><img src="{{ post.REGISTRATION.photo }}" alt="Post Image"></div>
+                        <p class="username">{{ post.REGISTRATION.name }}</p>
+                    </div>
+                    <img src="/static/img/option.PNG" class="options" alt="">
+                </div>
+                <img src="{{ post.photo }}" class="post-image" alt="">
+                <div class="post-content">
+                    <div class="reaction-wrapper">
+                        <img src="/static/img/like.PNG" class="icon" alt="">
+                        <img src="/static/img/comment.PNG" class="icon" alt="">
+                        <img src="/static/img/report.PNG" class="icon" alt="">
+                        <img src="/static/img/save.PNG" class="save icon" alt="">
+                    </div>
+                    <p class="likes">1,012 likes</p>
+                    <p class="description"><span>username </span> </p>
+                    <p class="post-time">2 minutes ago</p>
+                </div>
+                <div class="comment-wrapper">
+                    <img src="/static/img/smile.PNG" class="icon" alt="">
+                    <input type="text" class="comment-box" placeholder="Add a comment">
+                    <button class="comment-btn">post</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Search Results</title>
+</head>
+{#<body>#}
+{#<center>#}
+{#<br><br>#}
+{#<table border="2" style="height: 400px; width: 500px">#}
+{#<td>#}
+{#        {% if uview %}#}
+{#        <ul>#}
+{#            {% for user in uview %}#}
+{#                <li>{{ user.name }}</li>#}
+{#                <li>{{ user.photo }}</li>#}
+{#                <li>{{ user.bio }}</li>#}
+{#            {% endfor %}#}
+{#        </ul>#}
+{#    {% else %}#}
+{#        <p>No results found.</p>#}
+{#    {% endif %}#}
+{#</td>#}
+{#</table>#}
+{#</center>#}
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+</style>
+</head>
+<body>
+<form action="/insta/home/" method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+{#    <h2 style="text-align:center">User Profile Card</h2>#}
+<br><br><br>
+    <div class="card">
+    <img src="/static/images/Instagram-Logo.wine.jpg" style="width: 100px">
+        {% for user in uview %}
+          <img src={{forloop.counter}}.{{ user.image }} alt="" style="width:100%">
+          <h1>{{ user.name }}</h1>
+          <p>{{ user.bio }}</p>
+          <div style="margin: 24px 0;">
+            <a href="#"><i class="fa fa-dribbble"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-facebook"></i></a>
+          </div>
+          <p><button>Send request</button></p>
+        {% endfor %}
+    </div>
+</form>
+</body>
+</html>

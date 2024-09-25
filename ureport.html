@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>report user</title>
+    <style>
+         input[type=text], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+    position: relative;
+  left: 380px;
+    width: 600px;
+
+}
+    </style>
+</head>
+<body>
+<form action="/insta/reportuser_post/"method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <br><br>
+<div>
+  <center>
+      <h2 style="color: #075E54"><b><u>Report user</u></b></h2>
+      <br><br>
+      <input type="hidden" name="id" value="{{ id }}">
+      <b>report</b>
+      <input type="text" id="fname" name="report" value="{{ id.reportuser }}" placeholder="type your reason">
+      <input type="submit" value="Report">
+  </center>
+</div>
+</form>
+</div>
+</body>
+</html>

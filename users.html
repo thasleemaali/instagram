@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>users</title>
+<style>
+    table,tr,th,td {
+        border: 2px solid;
+        border-collapse: collapse;
+    }
+
+    tr:nth-child(even) {
+        background-color: burlywood;
+    }
+
+    th:nth-child(even),td:nth-child(even) {
+        background-color: transparent;
+     }
+
+    h3{
+        font-style: italic;
+        font-family: Castellar;
+    }
+</style>
+</head>
+<body>
+<form action="/insta/adminusersearch/" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+    <center>
+    <br><br>
+        <h2 style="font-family: 'Droid Sans Mono'; font-size: 105px">Users Portal</h2>
+    <br><br>
+        <input type="textfield" name="search" style="width: 300px">
+        <button type="submit" class="btn btn-dark">search</button>
+        <br><br>
+        <table border="2" class="table table-bordered">
+            <tr>
+                <th>SI.NO</th>
+                <th>name</th>
+                <th>email</th>
+                <th>image</th>
+            </tr>
+            {% for i in user %}
+            <tr style="border: 2px solid black">
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.name }}</td>
+                <td>{{ i.email }}</td>
+                <td style="height: 10px"><img src="{{ i.photo }}"></td>
+            </tr>
+            {% endfor %}
+         </table>
+    </center>
+</form>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>view reply from admin</title>
+    <style>
+    </style>
+</head>
+<body>
+
+<center>
+<form action="/insta/view_reply/"method="post" enctype="multipart/form-data>">
+    {% csrf_token %}
+    <h2 style="color:#075E54; width: 200px"><u>Reply From Admin</u></h2>
+    <table border="2">
+        <tr>
+             <th  style="color:#075E54 ">Sino</th>
+            <th  style="color: #075E54">Recieved Date</th>
+            <th  style="color: #075E54">Username</th>
+            <th  style="color:#075E54">complaints</th>
+            <th  style="color:#075E54">Reply</th>
+            <th  style="color: #075E54">status</th>
+        </tr>
+        {% for i in data %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.recieved_date }}</td>
+            <td>{{ i.USER.name }}</td>
+            <td>{{ i.complaint }}</td>
+            <td>{{ i.reply }}</td>
+            <td>{{ i.status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+</center>
+</body>
+</html>

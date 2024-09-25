@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<style>
+{#    table,tr,th,td {#}
+{#        border: 2px solid;#}
+{#        border-collapse: collapse;#}
+{#    }#}
+{##}
+{#    tr:nth-child(even) {#}
+{#        background-color: burlywood;#}
+{#    }#}
+{##}
+{#    th:nth-child(even),td:nth-child(even) {#}
+{#        background-color: transparent;#}
+{#     }#}
+{##}
+{#    h3{#}
+{#        font-style: italic;#}
+{#        font-family: Castellar;#}
+{#    }#}
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+    <div class="container">
+        <center>
+            <img src="/static/images/Instagram-Logo.wine.jpg" style="width: 100px">
+        </center>
+
+        <form action="/insta/user_search_results/" method="post">
+            {% csrf_token %}
+            <label for="search">Search for a user:</label>
+            <input type="text" id="search" name="usersearch" placeholder="Enter username">
+            <br><br>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+{#    <center>#}
+{#        <br><br>#}
+{#        <h2 style="font-family: 'Droid Sans Mono'; font-size: 105px">User</h2>#}
+{#        <br><br>#}
+{#        <input type="textfield" name="usersearch" style="width: 300px" id="usersearch">#}
+{#        <button type="submit" class="btn btn-dark">search</button>#}
+{#        <br><br>#}
+{#        <table border="2" class="table table-bordered">#}
+{#            <tr>#}
+{#                <th>name</th>#}
+{#                <button type="submit" class="btn btn-dark">send request</button>#}
+{#            </tr>#}
+{#            {% for i in uview %}#}
+{#            <tr style="border: 2px solid black">#}
+{#                <td>{{ forloop.counter }}</td>#}
+{#                <td>{{ i.name }}</td>#}
+{#            </tr>#}
+{#            {% endfor %}#}
+{#         </table>#}
+{#    </center>#}
+</body>
+</html>

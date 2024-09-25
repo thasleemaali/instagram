@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>addpost</title>
+</head>
+<body style="background-image: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);">
+<form action="/insta/post_post/" method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    <center>
+        <div class="logo">
+            <img src="/static/images/logo.jpg" width="200px">
+        </div>
+        <table border="1" style="background-color:white; height: 300px ; width: 500px">
+            <tr>
+                <td>
+                    <center>
+                        <img src="/static/images/Instagram-Logo.wine.jpg" style="width: 100px">
+                        <h3>Select image</h3>
+                        <input type="file" id="img" name="images">
+                        <br><br><br>
+                        <h3>Caption</h3>
+                        <input type="text" id="desc" name="description" style="width: 200px; height: 200px">
+                        <br><br><br>
+                        <input type="submit" value="Add post">
+                    </center>
+                </td>
+            </tr>
+        </table>
+    </center>
+</form>
+</body>
+</html>

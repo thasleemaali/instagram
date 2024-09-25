@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+table, th, td {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+tr:nth-child(even) {
+    background-color: burlywood;
+}
+
+th:nth-child(even),td:nth-child(even) {
+    background-color: transparent;
+}
+h3{
+    font-style: italic;
+    font-family: Castellar;
+}
+
+</style>
+<form action="/insta/compsearch_post/" method="post" enctype="multipart/form-data">
+{% csrf_token %}
+    <center>
+    <br><br>
+        <h1><b>Complaints</b></h1>
+            <br><br>
+            <i>From date:</i>
+            <input type="date" name="fdate">
+            <i>To date:</i>
+            <input type="date" name="tdate">
+            <button type="submit">search</button>
+            <table border="2" class="table table-stripped">
+            <BR><BR>
+                <tr>
+                    <th>SI/NO</th>
+                    <th>Recieved Date</th>
+                    <th>Username</th>
+                    <th>Complaint</th>
+                    <th>Status</th>
+                    <th>Reply given</th>
+                    <th>click here</th>
+                </tr>
+                {% for i in com %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ i.date }}</td>
+                    <td>{{ i.LOGIN.username }}</td>
+                    <td>{{ i.complaint }}</td>
+                    <td>{{ i.status }}</td>
+                    <td>{{ i.reply }}</td>
+                    <td><a href="/insta/send_reply/{{ i.id }}" class="btn btn-info">reply</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+    </center>
+</form>
+</center>
+</body>
+</html>

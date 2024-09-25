@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin home</title>
+</head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #c3195d;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: black;
+}
+</style>
+</head>
+<body>
+<ul>
+  <li style="float:right"><a  href="/insta/ulogin/">Logout</a></li>
+  <li style="float:right"><a  href="/insta/adminview_feedback/">Feedback</a></li>
+  <li style="float:right"><a href="/insta/adminview_complaint/">Complaint</a></li>
+  <li style="float:right"><a href="/insta/adminusers/">Users</a></li>
+  <li style="float:right"><a class="active" href="/insta/adminusers">Home</a></li>
+</ul>
+<br><br><br>
+<center>
+    <img src="/static/images/Instagram-Logo.wine.jpg" style="width: 300px">
+    <h1 style="font-family: 'Candara Light';font-size: 80px">Admin's Portal</h1>
+</center>
+</body>
+</html>

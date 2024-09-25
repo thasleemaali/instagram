@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input[type=text], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+
+}
+
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+    position: relative;
+  left: 200px;
+    width: 1000px;
+
+}
+
+a:link, a:visited {
+  background-color: green;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+    </style>
+</head>
+<body>
+<form action="/whatssap/admindatesearchreport_post/"method="post" enctype="multipart/form-data>">
+    {% csrf_token %}
+<div>
+<center>
+<br><br>
+    <h2 style="color:#075E54;"><u>Reports from users</u></h2>
+<br><br>
+    <b>From Date:</b>
+    <input type="date" name="fdate">
+    <b>To Date:</b>
+    <input type="date" name="tdate">
+<br><br>
+    <input type="submit" value="Search" style="width: 100px">
+<br><br>
+
+    <table border="2">
+        <tr>
+             <th  style="color:#075E54 ">Sino</th>
+            <th  style="color: #075E54">send Date</th>
+            <th  style="color: #075E54">phone number</th>
+            <th  style="color:#075E54">report</th>
+             <th  style="color: #075E54">reported person no:</th>
+
+{#            <th  style="color:#075E54">Reply</th>#}
+{#            <th  style="color: #075E54">status</th>#}
+        </tr>
+        {% for i in cview %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.send_date }}</td>
+            <td>{{ i.USER.name }}</td>
+            <td>{{ i.report }}</td>
+            <td>{{ i.against_user.name }}</td>
+            <td><a href="/whatssap/block/">Block User</a></td>
+{#            <td>{{ i.reply }}</td>#}
+{#            <td>{{ i.status }}</td>#}
+
+        </tr>
+        {% endfor %}
+
+    </table>
+</center>
+</div>
+</form>
+</body>
+</html>
